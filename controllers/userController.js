@@ -59,13 +59,14 @@ module.exports.postBlog = (req, res, next) => {
   blog.date = req.body.date;
   blog.save()
     .then((docs) => {
-      res.send(docs)
+      res.send(docs);
     })
     .catch((err) => {
-      console.log(err);
+      console.error('Error creating blog:', err); // Improved error logging
       res.status(400).send(err);
-    })
-}
+    });
+};
+
 
 module.exports.getCategory = (req, res, next) => {
   Category.find()
