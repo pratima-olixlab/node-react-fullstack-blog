@@ -2,7 +2,6 @@ import { createContext, useEffect, useReducer } from "react";
 import Reducer from "./Reducer";
 
 let userFromLocalStorage = localStorage.getItem("user");
-console.log("userFromLocalStorage:", userFromLocalStorage);
 let user;
 try {
   user = userFromLocalStorage ? JSON.parse(userFromLocalStorage) : null;

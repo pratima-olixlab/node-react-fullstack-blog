@@ -1,6 +1,5 @@
 import React from "react"
 
-import { Blog } from "../../components/blog/Blog"
 import { Pages } from "./Pages"
 
 export const Page = () => {
@@ -8,7 +7,6 @@ export const Page = () => {
     <>
     <div>
     </div>
-      {/* <Blog /> */}
       <Pages />
     </>
   )

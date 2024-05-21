@@ -62,12 +62,11 @@ export const Category = () => {
     return <div>No categories found.</div>;
   }
 
-  // Adjust settings for Slider
   const settings = {
     dots: false,
-    infinite: categories.length > 1, // Set infinite to false if only one category
+    infinite: categories.length > 1,
     speed: 500,
-    slidesToShow: categories.length > 1 ? 3 : 1, // Show one slide if only one category
+    slidesToShow: categories.length > 1 ? 3 : 1, 
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -86,17 +85,22 @@ export const Category = () => {
     <section className='category'>
       <div className='content'>
         <Slider {...settings}>
-          {categories.map((category) => (
+          {categories.map((category) => {
+              const arrayBufferView = new Uint8Array(category.cover.data);
+              const blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+              const coverSrc = URL.createObjectURL(blob);
+            return(
             <div className='boxs' key={category._id}>
               <div className='box'>
-                <img src={`${window.location.origin}/${category.cover}`} alt='cover' />
+                <img src={coverSrc} alt='cover' />
                 <div className='overlay'>
                   <h4>{category.category}</h4>
                   <p>{category.title}</p>
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </Slider>
       </div>
     </section>

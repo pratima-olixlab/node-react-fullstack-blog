@@ -29,47 +29,68 @@ export const Pages = () => {
     fetchBlogs();
   }, []);
 
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (blogs.length === 0) {
+    return <div>No blogs found.</div>;
+  }
+ 
   return (
     <>
-      <section className='blog'>
-        <div className='container grid3'>
-          {blogs.map((blog) => (
-            <div className='box boxItems' key={blog._id}>
-              <div className='img'>
-                <img src={`${window.location.origin}/${blog.cover}`} alt='' />
-              </div>
-              <div className='details'>
-                <div className='tag'>
-                  <AiOutlineTags className='icon' />
-                  <a href='/'>#{blog.category}</a>
+      <section className="blog">
+        <div className="container grid3">
+          {blogs.map((blog) => {
+            const arrayBufferView = new Uint8Array(blog.cover.data);
+            const blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+            const coverSrc = URL.createObjectURL(blob);
+            return (
+              <div className="box boxItems" key={blog._id}>
+                <div className="img">
+                  <img src={coverSrc} alt="cover" />
                 </div>
-                <Link to={`/details/${blog._id}`} className='link'>
-                  <h3>{blog.title}</h3>
-                </Link>
-                <p>{blog.description ? blog.description.slice(0, 180) + (blog.description.length > 180 ? "..." : "") : "No description available"}</p>
-                <div className='date'>
-                  <AiOutlineClockCircle className='icon' /> <label htmlFor=''>{blog.date}</label>
-                  <AiOutlineComment className='icon' /> <label htmlFor=''>{blog.comments.length}</label>
-                  <AiOutlineShareAlt className='icon' /> <label htmlFor=''>
-                    <RWebShare
-                      data={{
-                        text: "Web Share - GfG",
-                        url: "http://localhost:3000",
-                        title: "Share To",
-                      }}
-                      onClick={() =>
-                        console.log("shared successfully!")
-                      }
-                    >
-                      <button>Share on Web</button>
-                    </RWebShare>
-                  </label>
+                <div className="details">
+                  <div className="tag">
+                    <AiOutlineTags className="icon" />
+                    <a href="/">#{blog.category}</a>
+                  </div>
+                  <Link to={`/details/${blog._id}`} className="link">
+                    <h3>{blog.title}</h3>
+                  </Link>
+                  <p>
+                    {blog.description
+                      ? blog.description.slice(0, 180) + (blog.description.length > 180 ? "..." : "")
+                      : "No description available"}
+                  </p>
+                  <div className="date">
+                    <AiOutlineClockCircle className="icon" /> <label htmlFor="">{blog.date}</label>
+                    <AiOutlineComment className="icon" /> <label htmlFor="">{blog.comments.length}</label>
+                    <AiOutlineShareAlt className="icon" />{" "}
+                    <label htmlFor="">
+                      <RWebShare
+                        data={{
+                          text: "Web Share - GfG",
+                          url: "http://localhost:3000",
+                          title: "Share To",
+                        }}
+                        onClick={() => console.log("shared successfully!")}
+                      >
+                        <button>Share on Web</button>
+                      </RWebShare>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>
-  )
-}
+  );
+};

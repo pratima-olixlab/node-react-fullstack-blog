@@ -19,7 +19,7 @@ module.exports.register = (req, res, next) => {
 }
 
 module.exports.login = (req, res, next) => {
-  const { email, password } = req.body; // Extract email and password from request body
+  const { email, password } = req.body;
   User.findOne({ email: email }).exec()
     .then((user) => {
       if (!user || !user.verifyPassword(password)) {
@@ -37,7 +37,7 @@ module.exports.postCategory = (req, res, next) => {
   console.log('Inside category function');
   var category = new Category();
   category.title = req.body.title;
-  category.cover = req.file ? req.file.path : null; // Store image path if uploaded
+  category.cover = req.file ? req.file.buffer : null;
   category.category = req.body.category;
   category.save()
     .then((docs) => {
@@ -52,7 +52,7 @@ module.exports.postCategory = (req, res, next) => {
 module.exports.postBlog = (req, res, next) => {
   console.log('Inside blog function');
   var blog = new Blog();
-  blog.cover = req.file ? req.file.path : null;
+  blog.cover = req.file ? req.file.buffer : null;
   blog.title = req.body.title;
   blog.category = req.body.category;
   blog.description = req.body.description;
@@ -62,11 +62,10 @@ module.exports.postBlog = (req, res, next) => {
       res.send(docs);
     })
     .catch((err) => {
-      console.error('Error creating blog:', err); // Improved error logging
+      console.error('Error creating blog:', err);
       res.status(400).send(err);
     });
 };
-
 
 module.exports.getCategory = (req, res, next) => {
   Category.find()
@@ -121,7 +120,7 @@ module.exports.getCategoryById = (req, res, next) => {
 };
 
 module.exports.deleteBlogById = (req, res, next) => {
-  const blogId = req.params.id; // Extract the blog ID from request params
+  const blogId = req.params.id;
   Blog.findByIdAndDelete(blogId)
     .then(blog => {
       if (!blog) {
@@ -139,18 +138,27 @@ module.exports.editBlogById = async (req, res, next) => {
   const blogId = req.params.id;
   try {
     let updateFields = req.body;
+
     if (req.file) {
-      updateFields.cover = req.file.path;
+      updateFields.cover = req.file.buffer;
+    } else {
+      updateFields.cover = req.body.existingCover; 
     }
 
-    const updatedBlog = await Blog.findByIdAndUpdate(blogId, updateFields, { new: true });
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      blogId,
+      updateFields,
+      { new: true }
+    );
+
     if (!updatedBlog) {
-      return res.status(404).json({ message: 'Blog not found' });
+      return res.status(404).json({ message: "Blog not found" });
     }
-    res.status(200).json({ message: 'Blog updated successfully', updatedBlog });
+
+    res.status(200).json({ message: "Blog updated successfully", updatedBlog });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send("Internal Server Error");
   }
 };
 
@@ -158,18 +166,27 @@ module.exports.editCategoryById = async (req, res, next) => {
   const categoryId = req.params.id;
   try {
     let updateFields = req.body;
+
     if (req.file) {
-      updateFields.cover = req.file.path;
+      updateFields.cover = req.file.buffer;
+    } else {
+      updateFields.cover = req.body.existingCover; 
     }
 
-    const updatedCategory = await Category.findByIdAndUpdate(categoryId, updateFields, { new: true });
+    const updatedCategory = await Category.findByIdAndUpdate(
+      categoryId,
+      updateFields,
+      { new: true }
+    );
+
     if (!updatedCategory) {
-      return res.status(404).json({ message: 'Category not found' });
+      return res.status(404).json({ message: "Category not found" });
     }
-    res.status(200).json({ message: 'Category updated successfully', updatedCategory });
+
+    res.status(200).json({ message: "Category updated successfully", updatedCategory });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send("Internal Server Error");
   }
 };
 
@@ -230,7 +247,7 @@ module.exports.getCommentsByBlogId = async (req, res, next) => {
 };
 
 module.exports.deleteCategoryById = (req, res, next) => {
-  const categoryId = req.params.id; // Extract the category ID from request params
+  const categoryId = req.params.id;
   Category.findByIdAndDelete(categoryId)
     .then(category => {
       if (!category) {

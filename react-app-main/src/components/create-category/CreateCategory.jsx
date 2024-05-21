@@ -13,7 +13,7 @@ export const Category = () => {
         setError(false);
         try {
             const formData = new FormData();
-            formData.append("cover", cover); // Append the file object to FormData
+            formData.append("cover", cover);
             formData.append("title", title);
             formData.append("category", category);
 
@@ -37,10 +37,6 @@ export const Category = () => {
             <section className='newPost'>
                 <div className='container boxItems'>
                     <form onSubmit={handleSubmit}>
-                        {/* <div className='inputfile flexCenter'>
-                            <input type='file' accept='image/*' alt='img' onChange={handleFileChange} />
-                            {cover && <img src={URL.createObjectURL(cover)} alt='cover' className='image-preview' />}
-                        </div> */}
                         <div className="coverContainer">
                             <label className="coverLabel">
                                 <input type="file" accept="image/*" alt="img" onChange={handleFileChange} />

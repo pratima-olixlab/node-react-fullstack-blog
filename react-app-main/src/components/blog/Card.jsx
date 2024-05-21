@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./blog.css"
-import { AiOutlineTags, AiOutlineClockCircle, AiOutlineComment, AiOutlineShareAlt } from "react-icons/ai"
+import { AiOutlineTags, AiOutlineClockCircle, AiOutlineShareAlt } from "react-icons/ai"
 import { Link } from "react-router-dom"
 import axios from "axios";
 import { RWebShare } from "react-web-share";
@@ -16,7 +16,6 @@ export const Card = () => {
         const response = await axios.get(`${window.location.origin}/users/category`);
         setCategories(response.data);
         setLoading(false);
-        console.log('responseeeeecategory', response);
       } catch (error) {
         console.error("Error fetching categories:", error);
         setError("Failed to fetch categories.");
@@ -26,14 +25,30 @@ export const Card = () => {
     fetchCategories();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (categories.length === 0) {
+    return <div>No categories found.</div>;
+  }
+
   return (
     <>
       <section className='blog'>
         <div className='container grid3'>
-          {categories.map((item) => (
+          {categories.map((item) => {
+              const arrayBufferView = new Uint8Array(item.cover.data);
+              const blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+              const coverSrc = URL.createObjectURL(blob);
+            return (
             <div className='box boxItems' key={item._id}>
               <div className='img'>
-                <img src={`${window.location.origin}/${item.cover}`} alt='' />
+              <img src={coverSrc} alt='cover' />
               </div>
               <div className='details'>
                 <div className='tag'>
@@ -45,7 +60,6 @@ export const Card = () => {
                 </Link>
                 <div className='date'>
                   <AiOutlineClockCircle className='icon' /> <label htmlFor=''>{item.date}</label>
-                  {/* <AiOutlineComment className='icon' /> <label htmlFor=''>27</label> */}
                   <AiOutlineShareAlt className='icon' /> <label htmlFor=''>
                     <RWebShare
                       data={{
@@ -63,7 +77,8 @@ export const Card = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>

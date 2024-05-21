@@ -171,7 +171,6 @@ export const Account = () => {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    console.log(user); // Check if user data is received
     if (user) {
       setUsername(user.username || "");
       setEmail(user.email || "");
@@ -211,7 +210,7 @@ export const Account = () => {
             <div className="left">
               <div className="img flexCenter">
                 <input type="file" accept="image/*" src={image} alt="img" />
-                <img src={image} alt="image" className="image-preview" />
+                <img src={image} alt="images" className="image-preview" />
               </div>
             </div>
             <div className="right">

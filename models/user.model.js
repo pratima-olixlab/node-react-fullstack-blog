@@ -23,7 +23,6 @@ User.path('email').validate((val) => {
     return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
-// Events
 User.pre('save', function (next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
@@ -46,7 +45,7 @@ var Category = new mongoose.Schema({
         required: 'username can\'t be empty'
     },
     cover: {
-        type: String,
+        type: Buffer,
         required: 'cover can\'t be empty',
     },
     category: {
@@ -79,7 +78,7 @@ var Blog = new mongoose.Schema({
         required: 'username can\'t be empty'
     },
     cover: {
-        type: String,
+        type: Buffer,
         required: 'cover can\'t be empty',
     },
     category: {

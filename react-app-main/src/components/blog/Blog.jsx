@@ -84,19 +84,22 @@ export const Blog = () => {
     <section className='category'>
       <div className='content'>
         <Slider {...settings}>
-          {categories.map((category) => (
+          {categories.map((category) => {
+              const arrayBufferView = new Uint8Array(category.cover.data);
+              const blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+              const coverSrc = URL.createObjectURL(blob);
+            return(
             <div className='boxs' key={category._id}>
               <div className='box'>
-                <img src={`${window.location.origin}/${category.cover}`} alt='cover' />
+              <img src={coverSrc} alt='cover' />
                 <div className='overlay'>
                   <h4>{category.category}</h4>
                   <p>{category.title}</p>
-                  {/* <p>{category.description}</p>
-                  <p>{category.date}</p> */}
                 </div>
               </div>
             </div>
-          ))}
+          );
+          })}
         </Slider>
       </div>
     </section>
