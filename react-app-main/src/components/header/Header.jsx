@@ -16,7 +16,7 @@ export const Header = () => {
   }, []);
 
   const logout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
 

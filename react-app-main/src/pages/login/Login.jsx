@@ -1,27 +1,31 @@
-import React, { useContext, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../../context/Context";
 import axios from "axios";
 import "./login.css";
 
 export const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { dispatch, isFetching } = useContext(Context);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
+    setIsFetching(true);
+    setError(null);
+
     try {
       const res = await axios.post(`${window.location.origin}/users/login`, {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       });
       localStorage.setItem("token", res.data.token);
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user }); // Dispatch user data
-      window.location.replace("/"); // Redirect to home after successful login
+      localStorage.setItem("user", JSON.stringify(res.data.user)); // Store user data in localStorage
+      setIsFetching(false);
+      window.location.replace("/"); 
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE" });
+      setError("Login failed. Please check your credentials.");
+      setIsFetching(false);
     }
   };
 
@@ -46,6 +50,7 @@ export const Login = () => {
         <button className="loginButton" type="submit" disabled={isFetching}>
           Login
         </button>
+        {error && <span className="errorMessage">{error}</span>}
       </form>
       <button className="loginRegisterButton">
         <Link className="link" to="/register">
