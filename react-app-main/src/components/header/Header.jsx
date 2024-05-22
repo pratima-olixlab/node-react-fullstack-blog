@@ -3,11 +3,12 @@ import logo from "../../assets/images/pandaa.png";
 import "./header.css";
 import { User } from "./User";
 import { nav } from "../../assets/data/data";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useHistory();
+  const location = useLocation(); // Get the current location
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -29,7 +30,12 @@ export const Header = () => {
           <ul>
             {nav.map((link) => (
               <li key={link.id}>
-                <Link to={link.url}>{link.text}</Link>
+                <Link
+                  to={link.url}
+                  className={location.pathname === link.url ? "active" : ""}
+                >
+                  {link.text}
+                </Link>
               </li>
             ))}
           </ul>

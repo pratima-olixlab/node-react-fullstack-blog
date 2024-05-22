@@ -12,6 +12,7 @@ import { Category } from "./components/create-category/CreateCategory"
 import { Page } from "./pages/page/page"
 import { CategoryDetailsPages } from "./pages/details/CategoryDetailsPages"
 import { About } from "./pages/about/about"
+import { Contact } from "./pages/contact/contact"
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path='/category' component={Category} />
           <Route exact path='/pages' component={Page} />
           <Route exact path='/about' component={About} />
+          <Route exact path='/contact' component={Contact} />
         </Switch>
         <Footer />
       </Router>

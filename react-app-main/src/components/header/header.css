@@ -81,3 +81,10 @@ header.active {
     display: none;
   }
 }
+
+.header nav ul li .active {
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #000;
+}

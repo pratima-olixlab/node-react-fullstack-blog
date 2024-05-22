@@ -1,0 +1,31 @@
+#fifth {
+    background: rgb(5, 134, 219);
+    padding: 50px 40px;
+}
+
+#fifth p {
+    color: white;
+}
+
+#fifth div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#fifth img {
+    margin-right: 7%;
+}
+
+#fifth h1 {
+    font-size: 230%;
+    text-align: center;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    padding-bottom: 5%;
+    color: rgb(255, 255, 255);
+}
+
+.h3-class {
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
