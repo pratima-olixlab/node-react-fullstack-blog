@@ -76,7 +76,7 @@ export const Pages = () => {
                       <RWebShare
                         data={{
                           text: "Web Share - GfG",
-                          url: "http://localhost:3000",
+                          url: "https://node-react-fullstack-blog.vercel.app/",
                           title: "Share To",
                         }}
                         onClick={() => console.log("shared successfully!")}
