@@ -15,7 +15,7 @@ export const Contact = () => {
             <span>
               <h3 className="h3-class">Address</h3>
               <br />
-              <p>4813 Woodland Ave Royal Oak, Michigan - 48073, USA</p>
+              <p>4813 Woodland Ave Royal Oak, Surat - 48073, India</p>
             </span>
           </div>
           <div>
