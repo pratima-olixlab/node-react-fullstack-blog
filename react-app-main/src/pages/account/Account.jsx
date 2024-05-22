@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import image from "../../assets/images/profile.jpeg";
 import "./account.css";
+import { useHistory } from "react-router-dom";
 
 export const Account = () => {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-
+  const history = useHistory();
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -36,6 +37,7 @@ export const Account = () => {
         const updatedUser = { ...user, ...updatedUserData };
         localStorage.setItem("user", JSON.stringify(updatedUser));
         setUser(updatedUser);
+        history.push("/"); 
       } else {
         console.error("Update failed");
       }

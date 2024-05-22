@@ -113,7 +113,7 @@ export const User = ({ isLoggedIn, logout }) => {
                   </div>
                   <div className="text">
                     <h4>{username}</h4>
-                    <label>Los Angeles, CA</label>
+                    <label>Gujarat, India</label>
                   </div>
                 </div>
               </Link>

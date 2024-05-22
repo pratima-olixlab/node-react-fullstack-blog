@@ -493,7 +493,7 @@ export const DetailsPages = () => {
                     comments.map((comment) => (
                       <div key={comment._id} className="comment">
                         <p>
-                          {comment.user} {comment.text}
+                           {comment.text}
                         </p>
                       </div>
                     ))}
