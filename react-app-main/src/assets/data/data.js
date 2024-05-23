@@ -11,7 +11,7 @@ export const nav = [
   },
   {
     id: 3,
-    text: "pages",
+    text: "blogs",
     url: "/pages",
   },
   {

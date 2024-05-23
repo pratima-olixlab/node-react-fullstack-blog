@@ -1,9 +1,17 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import "./contact.css";
 
 export const Contact = () => {
   return (
     <>
+          <Helmet>
+        <title>Prolix System - Contact Us</title>
+        <meta name="title" content="Prolix System - Contact Us" />
+        <meta name="description" content="Contact information for Prolix System." />
+        <meta property="og:title" content="Contact Us - Prolix System" />
+        <meta property="og:description" content="Contact information for Prolix System." />
+      </Helmet>
       <div id="fifth">
         <h1>PROLIX SYSTEM</h1>
         <div>

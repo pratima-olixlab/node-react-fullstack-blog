@@ -1,17 +1,23 @@
-import React from "react"
-import { Card } from "../../components/blog/Card"
-import { Category } from "../../components/category/Category"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Card } from "../../components/blog/Card";
+import { Category } from "../../components/category/Category";
 
 export const Home = () => {
   return (
     <>
-    <div>
-      <h1>
-        Home Page
-      </h1>
-    </div>
+      <Helmet>
+        <title>Prolix System - Home</title>
+        <meta name="description" content="Welcome to the Prolix System home page. Discover our latest blog posts and explore various categories." />
+        <meta name="keywords" content="Prolix System, home page, blogs, categories, latest posts" />
+        <meta property="og:title" content="Prolix System - Home" />
+        <meta property="og:description" content="Welcome to the Prolix System home page. Discover our latest blog posts and explore various categories." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.yourwebsite.com/" />
+        <meta property="og:image" content="http://www.yourwebsite.com/path-to-image.jpg" />
+      </Helmet>
       <Category />
       <Card />
     </>
-  )
-}
+  );
+};

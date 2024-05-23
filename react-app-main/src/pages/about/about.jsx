@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import "./about.css";
 
 export const About = () => {
@@ -26,6 +27,28 @@ export const About = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Prolix System - About Us</title>
+        <meta
+          name="description"
+          content="Learn about Prolix System, our mission, values, and the innovative technology solutions we offer."
+        />
+        <meta
+          name="keywords"
+          content="Prolix System, digital marketing, technology solutions, remote employees, global partnerships, IT services"
+        />
+        <meta property="og:title" content="About Us - Prolix System" />
+        <meta
+          property="og:description"
+          content="Learn about Prolix System, our mission, values, and the innovative technology solutions we offer."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.yourwebsite.com/about" />
+        <meta
+          property="og:image"
+          content="http://www.yourwebsite.com/path-to-image.jpg"
+        />
+      </Helmet>
       <div className="about-container">
         <div id="front">
           <h1 style={{ textAlign: "center" }}>Welcome,To Prolix System</h1>
@@ -76,7 +99,7 @@ export const About = () => {
             TECHNOLOGY INDEX
           </h2>
           <h1 className="h1-class" style={{ color: "white" }}>
-            Real Time Monitoring Your Infrstracture Branded Degital Solutions
+            Real Time Monitoring Your Infrastructure Branded Digital Solutions
           </h1>
           <div id="fourth_cards">
             <div>
@@ -98,7 +121,7 @@ export const About = () => {
                 src="https://cdn.iconscout.com/icon/premium/png-64-thumb/web-development-3-478143.png"
                 alt=" "
               />
-              <p>WEB DEVELOPEMENT</p>
+              <p>WEB DEVELOPMENT</p>
             </div>
             <div>
               <img
@@ -139,10 +162,11 @@ export const About = () => {
               <h1>WE HAVE</h1>
               <h2>Global Partnership</h2>
               <p>
-                Our Global parters are spread 12 countries and our client base
-                is growing day by day . Many of my clients are repeat customers
-                and several have come to us through high recommendation and
-                referrals . Our client hail from different domains
+                Our Global partners are spread across 12 countries and our
+                client base is growing day by day. Many of our clients are
+                repeat customers and several have come to us through high
+                recommendation and referrals. Our clients hail from different
+                domains.
               </p>
             </div>
             <img
@@ -156,13 +180,13 @@ export const About = () => {
               <h1>OUR GOAL</h1>
               <h2>Same Quality at Low Cost</h2>
               <p>
-                We have unique and revolutionary business principle, ‘Same
-                quality but significantly lower cost’. we aims to fulfill the
+                We have a unique and revolutionary business principle: 'Same
+                quality but significantly lower cost'. We aim to fulfill the
                 long-standing outsourcing vacuum felt by Small Medium
                 Enterprises across the country who, till now, were dependent
-                mostly on offshore freelancers.The hired professionals match
-                their western counterparts in skills, qualifications and
-                experience alongwith the added advantage of attractive low
+                mostly on offshore freelancers. The hired professionals match
+                their western counterparts in skills, qualifications, and
+                experience along with the added advantage of attractive low
                 costs.
               </p>
             </div>
@@ -179,9 +203,9 @@ export const About = () => {
               <p>
                 We provide every client with a dedicated, full-time work from
                 home from their comfortable place. To successfully achieve this
-                objective, we relay on management, infrastructure, hardware and
+                objective, we rely on management, infrastructure, hardware, and
                 the latest technology to bridge physical distance and time zone
-                differences.We provide experience of making employees to work
+                differences. We provide the experience of making employees work
                 from home for the company as real as they work in the company.
               </p>
             </div>
@@ -197,7 +221,7 @@ export const About = () => {
             OUR PROCESS
           </h1>
           <h1 className="h3-class" style={{ textAlign: "center" }}>
-            Driving Client Results Utilizing New Innovation Points of view
+            Driving Client Results Utilizing New Innovation Perspectives
           </h1>
           <div id="third_cards">
             <div>
@@ -215,7 +239,7 @@ export const About = () => {
               </p>
             </div>
             <div>
-              <h2>Experience Certainty Every Project Executed Successful</h2>
+              <h2>Experience Certainty Every Project Executed Successfully</h2>
               <p>
                 Fusce nec tellus sed augue semper porta. Mauris massa.
                 Vestibulum lacinia arcu eget nulla. per inceptos himenaeos.
