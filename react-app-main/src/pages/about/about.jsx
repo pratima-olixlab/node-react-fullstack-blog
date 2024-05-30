@@ -28,19 +28,19 @@ export const About = () => {
   return (
     <>
       <Helmet>
-        <title>Prolix System - About Us</title>
+        <title>Prolixic System - About Us</title>
         <meta
           name="description"
-          content="Learn about Prolix System, our mission, values, and the innovative technology solutions we offer."
+          content="Learn about Prolixic System, our mission, values, and the innovative technology solutions we offer."
         />
         <meta
           name="keywords"
-          content="Prolix System, digital marketing, technology solutions, remote employees, global partnerships, IT services"
+          content="Prolixic System, digital marketing, technology solutions, remote employees, global partnerships, IT services"
         />
-        <meta property="og:title" content="About Us - Prolix System" />
+        <meta property="og:title" content="About Us - Prolixic System" />
         <meta
           property="og:description"
-          content="Learn about Prolix System, our mission, values, and the innovative technology solutions we offer."
+          content="Learn about Prolixic System, our mission, values, and the innovative technology solutions we offer."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://www.yourwebsite.com/about" />
@@ -51,7 +51,7 @@ export const About = () => {
       </Helmet>
       <div className="about-container">
         <div id="front">
-          <h1 style={{ textAlign: "center" }}>Welcome,To Prolix System</h1>
+          <h1 style={{ textAlign: "center" }}>Welcome,To Prolixic System</h1>
           <img
             src="https://cdni.iconscout.com/illustration/premium/thumb/about-us-1805547-1537820.png"
             alt="font"
@@ -73,7 +73,7 @@ export const About = () => {
           <div>
             <h1>We Offer Innovative Technology Solutions</h1>
             <p>
-              ProlixSystem is a full-service digital marketing agency with a
+              Prolixic System is a full-service digital marketing agency with a
               long history of delivering great results for our clients. We take
               an individualized approach to every customer project. In some
               cases we may focus more on SEO, while in others we’ll dig more

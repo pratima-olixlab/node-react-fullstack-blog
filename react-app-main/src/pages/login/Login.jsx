@@ -33,11 +33,11 @@ export const Login = () => {
   return (
     <main className="login">
       <Helmet>
-        <title>Prolix System - Login</title>
-        <meta name="title" content="Prolix System - Login" />
-        <meta name="description" content="Login to access your Prolix System account and manage your blog." />
-        <meta property="og:title" content="Prolix System - Login" />
-        <meta property="og:description" content="Login to access your Prolix System account and manage your blog." />
+        <title>Prolixic System - Login</title>
+        <meta name="title" content="Prolixic System - Login" />
+        <meta name="description" content="Login to access your Prolixic System account and manage your blog." />
+        <meta property="og:title" content="Prolixic System - Login" />
+        <meta property="og:description" content="Login to access your Prolixic System account and manage your blog." />
         <meta property="og:url" content={window.location.href} />
         <meta property="og:type" content="website" />
       </Helmet>

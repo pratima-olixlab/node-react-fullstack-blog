@@ -7,11 +7,11 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Prolix System - Home</title>
-        <meta name="description" content="Welcome to the Prolix System home page. Discover our latest blog posts and explore various categories." />
-        <meta name="keywords" content="Prolix System, home page, blogs, categories, latest posts" />
-        <meta property="og:title" content="Prolix System - Home" />
-        <meta property="og:description" content="Welcome to the Prolix System home page. Discover our latest blog posts and explore various categories." />
+        <title>Prolixic System - Home</title>
+        <meta name="description" content="Welcome to the Prolixic System home page. Discover our latest blog posts and explore various categories." />
+        <meta name="keywords" content="Prolixic System, home page, blogs, categories, latest posts" />
+        <meta property="og:title" content="Prolixic System - Home" />
+        <meta property="og:description" content="Welcome to the Prolixic System home page. Discover our latest blog posts and explore various categories." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://www.yourwebsite.com/" />
         <meta property="og:image" content="http://www.yourwebsite.com/path-to-image.jpg" />

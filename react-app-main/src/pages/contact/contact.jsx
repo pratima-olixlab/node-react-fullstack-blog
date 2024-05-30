@@ -6,14 +6,14 @@ export const Contact = () => {
   return (
     <>
           <Helmet>
-        <title>Prolix System - Contact Us</title>
-        <meta name="title" content="Prolix System - Contact Us" />
-        <meta name="description" content="Contact information for Prolix System." />
-        <meta property="og:title" content="Contact Us - Prolix System" />
-        <meta property="og:description" content="Contact information for Prolix System." />
+        <title>Prolixic System - Contact Us</title>
+        <meta name="title" content="Prolixic System - Contact Us" />
+        <meta name="description" content="Contact information for Prolixic System." />
+        <meta property="og:title" content="Contact Us - Prolixic System" />
+        <meta property="og:description" content="Contact information for Prolixic System." />
       </Helmet>
       <div id="fifth">
-        <h1>PROLIX SYSTEM</h1>
+        <h1>PROLIXIC SYSTEM</h1>
         <div>
           <div>
             <img
@@ -45,7 +45,7 @@ export const Contact = () => {
             <span>
               <h3 className="h3-class">E-mail</h3>
               <br />
-              <p>sales@prolixsystem.com</p>
+              <p>sales@prolixicsystem.com</p>
             </span>
           </div>
         </div>
